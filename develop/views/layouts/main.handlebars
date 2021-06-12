@@ -21,21 +21,21 @@
 
   <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-start">
-      <a class="navbar-item">
+      <a class="navbar-item" href="/homeviewblogs">
         Home
       </a>
 
-      <a class="navbar-item">
+      <a class="navbar-item" href="/dashboard">
         dashboard
       </a>
 
     <div class="navbar-end">
       <div class="navbar-item">
         <div class="buttons">
-          <a class="button is-primary">
+          <a class="button is-primary" href="/login">
             <strong>log in</strong>
           </a>
-          <a class="button is-light">
+          <a id="logout-link" class="button is-light" href="#" >
             Log out
           </a>
         </div>
@@ -45,4 +45,5 @@
 </nav>
     {{{body}}}
 </body>
+<script src="/js/logout.js"></script>
 </html>

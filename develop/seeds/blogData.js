@@ -11,7 +11,7 @@ const blogData = [
         title:'core features of Express framework',
         content:'Allows to set up middlewares to respond to HTTP Requests;Defines a routing table which is used to perform different actions based on HTTP Method and URL;Allows to dynamically render HTML Pages based on passing arguments to templates.',
         
-        user_id:1,
+        user_id:2,
     },
 ];
 
