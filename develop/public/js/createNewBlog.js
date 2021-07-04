@@ -3,8 +3,8 @@ const createBlogButton = document.querySelector('#createBlogButton');
 const createNewBlog= async (event)=>{
     event.preventDefault();
 
-    const newBlogTitle = document.getElementById('title');
-    const newBlogContent = document.getElementById('content');
+    const newBlogTitle = document.getElementById('title').value.trim();
+    const newBlogContent = document.getElementById('content').value.trim();
     
     if( newBlogTitle && newBlogContent ) {
         const response = await fetch('/api/blog',{
@@ -14,7 +14,7 @@ const createNewBlog= async (event)=>{
                 content: newBlogContent,
             }),
             headers: {'Content-Type': 'application/json'},
-        })
+        });
     
         if(response.ok){
             console.log(`all created!`)
