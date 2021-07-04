@@ -1,3 +1,8 @@
+/* .card{
+    margin:1em 2em;
+} */
 .card{
-    margin:1em 10em;
+    justify-content: center;
+    width: 60em;
+    
 }

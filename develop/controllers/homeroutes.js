@@ -3,23 +3,11 @@ const {User, Blog, Comments}= require('../models');
 const auth= require('../utils/auth');
 
 router.get('/', auth, async(req,res)=>{
-    try {
-        const blogData = await Blog.findAll({
-            where:{
-                user_id:req.session.user_id,
-            },
-            // include: [
-            //     {
-            //         model: User,
-
-            //     }
-            // ]
-        });
-        const blogs= blogData.map(oneBlog=>oneBlog.get({plain: true}));
-        res.render("homeviewblogs",{blogs});  
-    }
-    catch(err){
-        res.status(500).json(err);
+    if ( !req.session.loggedIn) {
+        res.redirect('/login');
+        return;
+    } else {
+        res.redirect('/homeviewblogs')
     }
 });
 
@@ -39,36 +27,27 @@ router.get('/login',(req,res)=>{
 router.get('/signup',(req,res)=>{
     res.render('signup');
 })
-// router.get("/logout", async (req, res) => {
-//     try {
-//         res.status(200).render("logout");
-//     } catch (err) {
-//         res.status(500).json(err);
-//     }
-//   })
 
 router.get('/dashboard', (req,res)=>{
-    res.render('dashboard');
-})
-
-router.get('/createnewblog', (req,res)=>{
     res.render('createnewblog');
 })
+
+// router.get('/createnewblog', (req,res)=>{
+//     res.render('createnewblog');
+// })
 
 router.get('/homeviewblogs', async(req,res)=>{
     try {
         const blogData = await Blog.findAll({
-            include: [
-                {
-                    model: User,
-
-                }
-            ]
+            where:{
+                user_id: req.session.user_id,
+            },
         });
         const blogs= blogData.map(oneBlog=>oneBlog.get({plain: true}));
         res.render("homeviewblogs",{blogs});  
     }
     catch(err){
+        console.log( err)
         res.status(500).json(err);
     }
 })

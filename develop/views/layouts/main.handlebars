@@ -8,42 +8,58 @@
     <link rel="stylesheet" href="/css/login.css">
     <link rel="stylesheet" href="/css/signup.css">
     <title>Tech Blog</title>
+    <link rel="shortcut icon" href="#">
 </head>
 <body>
     <nav class="navbar" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </a>
-  </div>
-
-  <div id="navbarBasicExample" class="navbar-menu">
-    <div class="navbar-start">
-      <a class="navbar-item" href="/homeviewblogs">
-        Home
-      </a>
-
-      <a class="navbar-item" href="/dashboard">
-        dashboard
-      </a>
-
-    <div class="navbar-end">
-      <div class="navbar-item">
-        <div class="buttons">
-          <a class="button is-primary" href="/login">
-            <strong>log in</strong>
-          </a>
-          <a id="logout-link" class="button is-light" href="#" >
-            Log out
+        <div class="navbar-brand">
+          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
           </a>
         </div>
-      </div>
-    </div>
-  </div>
-</nav>
-    {{{body}}}
+
+        <div id="navbarBasicExample" class="navbar-menu">
+          <div class="navbar-start">
+            <a class="navbar-item" href="/homeviewblogs">
+              Home
+            </a>
+
+            <a class="navbar-item" href="/dashboard">
+              dashboard
+            </a>
+
+          <div class="navbar-end">
+            <div class="navbar-item">
+              <div class="buttons">
+                {{#if loggedIn}}
+                <a id="logout-link" class="button is-light" href="/homeviewblogs" >
+                  <strong>log out</strong>
+                </a>
+                {{else}}
+                <a class="button is-primary" href="/login">
+                  <strong>log in</strong>
+                </a>
+                {{/if}}
+                
+                {{!-- <a>
+                  <button class="button is-light" id="logout-link">logout</button>
+                </a> --}}
+               
+              
+              </div>
+            </div>
+          </div>
+        </div>
+    </nav>
+  <main class="container container-fluid mt-5">
+    {{{ body }}}
+  </main>
+  
+    {{#if loggedIn}}
+    <script src="/js/logout.js"></script>
+    {{/if}}
 </body>
-<script src="/js/logout.js"></script>
+
 </html>

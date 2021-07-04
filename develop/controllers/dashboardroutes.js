@@ -20,7 +20,8 @@ router.get('/', auth, async(req,res)=>{
         // });
         // const blogs= blogData.map(oneBlog=>oneBlog.get({plain: true}));
         // res.render('dashboard',{blogs});  
-        res.render('dashboard');  
+        // res.render('dashboard');  
+        res.render('createnewblog');  
     }
     catch(err){
         res.redirect('login');
