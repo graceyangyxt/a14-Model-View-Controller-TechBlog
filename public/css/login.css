@@ -1,5 +1,10 @@
-.card{
+.card-header-title{
+  
+   justify-content: center;
+}
+.buttons{
     justify-content: center;
-    width: 60em;
-    
+}
+.text{
+    text-align: center;
 }

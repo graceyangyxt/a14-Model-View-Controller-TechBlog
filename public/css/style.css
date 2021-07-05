@@ -1,0 +1,9 @@
+#navbarBasicExample{
+    height: 9%;
+    display:flex;
+    justify-content:center;
+    align-items: center;
+}
+.navbar .navbar-item{
+  display: inline-block;
+}
