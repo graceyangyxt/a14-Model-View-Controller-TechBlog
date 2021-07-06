@@ -6,21 +6,27 @@
        <div class="card column is-three-fifths is-offset-one-fifth">
           <header class="card-header">
             <p class="card-header-title">{{blog.title}}</p>
-            <p class="subtitle is-6">Posted by: {{user_id}} on {{format_date create_date}}</p>
           </header>
+          <br>
+          <div>
+            <p class="card-header-subtitle" id="user">Posted by: {{user_id}} on {{format_date create_date}}</p>
+          </div>
+          
 
             <div class="card-content">
+              <h3><strong>Content</strong></h3>
               <p>{{blog.content}}</p>
             </div>
             
-
+            {{#each blog.comments as |comment| }}
              <div class="card-content">
                <h3><strong>Comment</strong></h3>
-               <p>{{text_comment}}</p>
+               <p>{{comment.text_comment}}</p>
             </div>
+            {{/each}}
 
           <div class="buttons" >
-                <button   type="submit" id="addCommentButton" class="button is-primary ">Add New Comment</button>
+                <button   type="submit" id="addCommentButton" class="button is-primary" data-blogid="{{blog.id}}">Add New Comment</button>
           </div>
           
        </div>

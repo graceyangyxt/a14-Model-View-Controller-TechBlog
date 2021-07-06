@@ -1,6 +1,10 @@
 .card{
     justify-content: center;
+    margin-bottom: 2em;
 }
 .buttons{
     justify-content: center;
+}
+#user{
+    text-align: center;
 }

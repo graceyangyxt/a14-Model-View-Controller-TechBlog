@@ -48,6 +48,7 @@ router.get('/homeviewblogs', async(req,res)=>{
             where:{
                 user_id: req.session.user_id,
             },
+            include: [ {model: Comments}]
         });
         const blogs= blogData.map(oneBlog=>oneBlog.get({plain: true}));
         res.render("homeviewblogs",{blogs,loggedIn: req.session.loggedIn,});  
