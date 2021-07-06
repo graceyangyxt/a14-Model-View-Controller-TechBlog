@@ -1,16 +1,16 @@
 <div>
 
     {{!-- <h1>view blogs</h1> --}}
-    {{#each blogs as |blog| }}
+
     <div class="columns is-mobile">
        <div class="card column is-three-fifths is-offset-one-fifth">
           <header class="card-header">
-            <p class="card-header-title">{{blog.title}}</p>
-            <p class="subtitle is-6">Posted by: {{user_id}} on {{create_date}}</p>
+            <p class="card-header-title">{{title}}</p>
+            <p class="subtitle is-6">Posted by: {{username}} on {{format_date create_date}}</p>
           </header>
 
             <div class="card-content">
-              <p>{{blog.content}}</p>
+              <p>{{content}}</p>
             </div>
 
             <div class="card-content"id="addNewComment">
@@ -28,6 +28,6 @@
           
        </div>
     </div>         
-    {{/each}}
+   
 </div>
  <script src="/js/addComment.js"></script>
