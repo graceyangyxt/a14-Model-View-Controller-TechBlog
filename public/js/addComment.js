@@ -18,6 +18,7 @@ const submitComment= async (event)=>{
     
         if(response.ok){
             console.log(`all created!`)
+            
             document.location.replace('/homeviewblogs');
 
         }else {
