@@ -3,14 +3,15 @@ const {User,Blog,Comments} = require('../../models');
 // const withAuth = require('../../utils/auth');
 
 
-router.post('/',async(req,res)=> {
+router.post('/:id',async(req,res)=> {
     
     try{
-        
         const newComment= await Comments.create({
-            text_comment: req.body.comment,
-            user_id: req.session.user_id,
-            blog_id: req.session.blog_id,
+            where:{
+                text_comment: req.body.text_comment,
+                user_id: req.session.user_id,
+                // blog_id: req.params.id,
+            }
         });
 
         res.status(200).json(newComment);
