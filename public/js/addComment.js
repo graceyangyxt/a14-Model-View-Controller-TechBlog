@@ -1,4 +1,4 @@
-const addCommentButton = document.querySelector('#addCommentButton');
+const submitCommentButton = document.querySelector('#submitCommentButton');
 
 const submitComment= async (event)=>{
     event.preventDefault();
@@ -19,10 +19,11 @@ const submitComment= async (event)=>{
         if(response.ok){
             console.log(`all created!`)
             document.location.replace('/homeviewblogs');
+
         }else {
             alert(response.statusText);
         }
     }
 };
 
-addCommentButton.addEventListener('click',submitComment);
+submitCommentButton.addEventListener('click',submitComment);
