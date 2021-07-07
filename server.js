@@ -35,6 +35,13 @@ app.use(express.static(path.join(__dirname,'public')));
 
 app.use(routes);
 
+// app.use('/', (req, res) => {
+//     res.render('main', {layout: 'main'});
+// });
+app.get("/", function(req, res) {
+    res.json(path.join(__dirname, "public/index.html"));
+  });
+
 sequelize.sync({ force:false}).then(()=>{
     app.listen(PORT,()=> console.log('Now listening'));
 });
